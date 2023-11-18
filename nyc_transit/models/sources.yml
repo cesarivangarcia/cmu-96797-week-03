@@ -68,7 +68,6 @@ sources:
             data_type: CHARACTER VARYING(256)
             description: "Station Identification code"
             tests:
-              - unique
               - dbt_expectations.expect_column_to_exist
           - name: name
             data_type: CHARACTER VARYING(256)

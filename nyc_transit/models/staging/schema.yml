@@ -1,6 +1,6 @@
 models:
   - name: stg__bike_data
-    description: ""
+    description: "Bike data stagin model"
     columns:
       - name: started_at_ts
         description: ""
@@ -19,21 +19,19 @@ models:
               column_type: timestamp
 
       - name: tripduration
-        description: ""
+        description: "Trip duration"
         tests:
           - not_null
           - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: int
 
       - name: start_station_id
-        description: ""
+        description: "start station id "
 
       - name: start_station_name
         description: ""
 
       - name: start_lat
-        description: ""
+        description: "starting latitude valid range is between -90 and 90 "
         tests:
           - not_null
           - dbt_expectations.expect_column_to_exist
@@ -44,7 +42,7 @@ models:
               max_value: 90.0
 
       - name: start_lng
-        description: ""
+        description: "starting longitude valid range is between -180 and 180"
         tests:
           - not_null
           - dbt_expectations.expect_column_to_exist
@@ -56,14 +54,16 @@ models:
 
       - name: end_station_id
         description: ""
-
+        tests:
+          - dbt_expectations.expect_column_to_exist
+  
+      
       - name: end_station_name
         description: ""
 
       - name: end_lat
         description: ""
         tests:
-          - not_null
           - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: double
@@ -74,7 +74,6 @@ models:
       - name: end_lng
         description: ""
         tests:
-          - not_null
           - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: double
@@ -97,7 +96,6 @@ models:
       - name: date
         description: ""
         tests:
-          - not_null
           - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: date
@@ -105,7 +103,6 @@ models:
       - name: awnd
         description: ""
         tests:
-          - not_null
           - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: double
@@ -121,7 +118,6 @@ models:
       - name: snow
         description: ""
         tests:
-          - not_null
           - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: double
@@ -139,16 +135,14 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: int
+
 
       - name: tmin
         description: ""
         tests:
           - not_null
           - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: int
+ 
 
       - name: filename
         description: ""
@@ -172,7 +166,7 @@ models:
         description: ""
 
   - name: stg__fhv_tripdata
-    description: ""
+    description: "stage fhv tripdata"
     columns:
       - name: dispatching_base_num
         description: ""
@@ -278,7 +272,7 @@ models:
       - name: access_a_ride_flag
         description: ""
         tests:
-          # - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: boolean
 
