@@ -394,4 +394,4 @@ sources:
             data_type: DOUBLE
             description: "$1.25 for pick up only at LaGuardia and John F. Kennedy Airports"
           - name: filename
-            data_type: CHARACTER VARYING(256)
+            data_type: CHARACTER VARYING(256).
